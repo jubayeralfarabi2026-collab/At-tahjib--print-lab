@@ -108,6 +108,142 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
   .classic-hero-title{font-size:21px;}
 }
 
+
+/* ===== PREMIUM CONTACT REDESIGN — MATCHED WITH SITE NAVY & GOLD ===== */
+.contact{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 15%,rgba(232,184,63,.10),transparent 24%),
+    radial-gradient(circle at 88% 85%,rgba(59,105,177,.12),transparent 26%),
+    linear-gradient(135deg,#061225 0%,#0a1b35 55%,#071426 100%);
+  padding:95px 6%;
+}
+.contact:before,.contact:after{
+  content:"";position:absolute;width:150px;height:150px;opacity:.22;
+  background-image:radial-gradient(var(--gold) 1.4px,transparent 1.7px);
+  background-size:15px 15px;pointer-events:none;
+}
+.contact:before{left:-35px;top:65px}
+.contact:after{right:-35px;bottom:45px}
+.contact .title{position:relative;z-index:2;margin-bottom:52px}
+.contact .title:before{
+  content:"যোগাযোগ";display:inline-block;margin-bottom:12px;padding:7px 18px;
+  border:1px solid rgba(232,184,63,.32);border-radius:999px;
+  color:var(--gold2);font-size:13px;font-weight:700;letter-spacing:2px;
+  background:rgba(255,255,255,.035);box-shadow:0 8px 28px rgba(0,0,0,.16);
+}
+.contact .title h2{
+  font-size:clamp(32px,4vw,52px);line-height:1.2;margin-bottom:12px;
+  color:#fff;text-shadow:0 8px 28px rgba(0,0,0,.22);
+}
+.contact .title h2::first-letter{color:var(--gold2)}
+.contact .title p{max-width:760px;margin:auto;color:#b9c8da;font-size:17px}
+.contact-box{
+  position:relative;z-index:2;max-width:1120px;margin:auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.contact-item{
+  min-height:295px;padding:32px 20px 26px;border-radius:22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+  border:1px solid rgba(232,184,63,.18);
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.contact-item:hover{
+  transform:translateY(-8px);
+  border-color:rgba(232,184,63,.65);
+  box-shadow:0 24px 48px rgba(0,0,0,.28),0 0 28px rgba(232,184,63,.08);
+}
+.contact-item .icon{
+  width:82px;height:82px;border-radius:50%;display:grid;place-items:center;
+  margin:0 0 18px;background:rgba(232,184,63,.08);
+  border:1px solid rgba(232,184,63,.36);
+  box-shadow:inset 0 0 24px rgba(232,184,63,.06),0 0 20px rgba(232,184,63,.06);
+}
+.contact-item .icon i{font-size:39px}
+.contact-item h3{
+  color:var(--gold2);font-size:22px;margin-bottom:14px;letter-spacing:.2px;
+}
+.contact-item p{color:#dce5f0;font-size:16px;line-height:1.9;margin:0}
+.contact-item a{
+  color:#eef3fa;text-decoration:none;display:inline-block;transition:.2s;
+}
+.contact-item a:hover{color:var(--gold2)}
+.contact-item.phone p a{padding:1px 8px;border-bottom:1px solid rgba(255,255,255,.10)}
+.contact-item.phone p a:last-child{border-bottom:0}
+.contact-item.phone:after,.contact-item.whatsapp-icon:after,
+.contact-item.location:after,.contact-item.facebook:after,.contact-item.gmail:after{
+  content:"";margin-top:auto;width:54px;height:3px;border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.8;
+}
+.contact-item.phone .icon,.contact-item.whatsapp-icon .icon{
+  border-color:rgba(37,211,102,.38);background:rgba(37,211,102,.07);
+}
+.contact-item.location .icon{border-color:rgba(255,138,101,.38);background:rgba(255,138,101,.07)}
+.contact-item.facebook .icon{border-color:rgba(91,156,255,.38);background:rgba(91,156,255,.07)}
+.contact-item.gmail .icon{border-color:rgba(255,107,93,.38);background:rgba(255,107,93,.07)}
+.contact-item.gmail{
+  grid-column:2 / span 2;min-height:245px;
+}
+@media(max-width:980px){
+  .contact-box{grid-template-columns:repeat(2,1fr)}
+  .contact-item.gmail{grid-column:auto}
+}
+@media(max-width:580px){
+  .contact{padding:75px 5%}
+  .contact-box{grid-template-columns:1fr}
+  .contact-item{min-height:230px}
+  .contact-item.gmail{grid-column:auto}
+  .contact .title p{font-size:15px}
+}
+
+
+/* Google-style Gmail and Maps icons */
+.gmail .icon .google-gmail,
+.location .icon .google-map-pin{
+  position:relative;
+  display:block;
+}
+.gmail .icon .google-gmail{
+  width:46px;height:34px;
+  background:
+    linear-gradient(135deg,#4285f4 0 16%,transparent 16% 84%,#4285f4 84%) left/100% 100% no-repeat,
+    linear-gradient(45deg,transparent 0 39%,#34a853 40% 49%,transparent 50%) left/100% 100% no-repeat;
+  border-left:7px solid #ea4335;
+  border-right:7px solid #fbbc04;
+  border-top:7px solid #ea4335;
+  border-radius:4px;
+  box-sizing:border-box;
+}
+.gmail .icon .google-gmail:after{
+  content:"";
+  position:absolute;left:4px;right:4px;top:2px;height:24px;
+  background:linear-gradient(135deg,transparent 48%,#fff 49% 51%,transparent 52%);
+  opacity:.95;
+}
+.location .icon .google-map-pin{
+  width:39px;height:39px;
+  background:linear-gradient(135deg,#4285f4 0 50%,#34a853 50% 100%);
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  box-shadow:0 5px 12px rgba(0,0,0,.18);
+}
+.location .icon .google-map-pin:before{
+  content:"";
+  position:absolute;width:14px;height:14px;border-radius:50%;
+  background:#fff;left:12px;top:12px;
+}
+.location .icon .google-map-pin:after{
+  content:"";
+  position:absolute;width:20px;height:20px;border-radius:50%;
+  border:5px solid #fbbc04;box-sizing:border-box;
+  left:9px;top:9px;opacity:.9;
+}
+
 </style>
 </head>
 
@@ -116,7 +252,7 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
 
 
 <!-- HEADER -->
-<header><div class="navbar"><div class="logo"><div class="logo-icon"><img src="At (1).jpg" alt="At Tahjib PrintLab"></div><div>At <span>Tahjib</span> Print'Lab</div></div><nav><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#order">Order</a><a href="#contact">Contact</a></nav></div></header>
+<header><div class="navbar"><div class="logo"><div class="logo-icon"><img src="1.jpg" alt="At Tahjib PrintLab"></div><div>At <span>Tahjib</span> Print'Lab</div></div><nav><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#order">Order</a><a href="#contact">Contact</a></nav></div></header>
 <!-- HOME -->
 <section class="hero premium-home" id="home">
   <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
@@ -721,7 +857,7 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
 
   <div class="title">
 
-    <h2>📞 অর্ডার করতে যোগাযোগ করুন</h2>
+    <h2><i class="fa-solid fa-phone-volume"></i> অর্ডার করতে যোগাযোগ করুন</h2>
 
     <p>
       আপনার প্রয়োজনের বিস্তারিত তথ্য, ছবি বা ডিজাইন
@@ -790,7 +926,7 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
     <div class="contact-item location">
 
       <div class="icon">
-        <i class="fa-solid fa-location-dot"></i>
+        <span class="google-map-pin" aria-label="Location"></span>
       </div>
 
       <h3>Location</h3>
@@ -832,7 +968,7 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
     <div class="contact-item gmail">
 
       <div class="icon">
-        <i class="fa-solid fa-envelope"></i>
+        <span class="google-gmail" aria-label="Gmail"></span>
       </div>
 
       <h3>Gmail</h3>
