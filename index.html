@@ -109,6 +109,372 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
 }
 
 </style>
+
+<style id="premium-upgrade">
+:root{
+  --navy:#061225;--navy2:#0a1b35;--gold:#e8b83f;--gold2:#ffd766;
+  --cream:#fffaf0;--ink:#172033;--muted:#64748b;--line:#eadfca;
+  --shadow:0 18px 55px rgba(6,18,37,.12);
+}
+html{scroll-padding-top:92px}
+body{overflow-x:hidden}
+::selection{background:#e8b83f;color:#061225}
+header{transition:.3s ease}
+header.scrolled{background:rgba(4,13,27,.92);box-shadow:0 10px 35px rgba(0,0,0,.28)}
+.navbar{min-height:78px}
+.logo{white-space:nowrap}
+.logo span{color:var(--gold2)}
+nav a{transition:.25s ease}
+nav a:after{transition:.25s ease}
+.nav-cta{background:linear-gradient(135deg,#f6cf68,#d89b22)!important;color:#071426!important;padding:9px 16px!important;border-radius:999px}
+.nav-cta:after{display:none!important}
+
+.mobile-toggle{
+  display:none;border:1px solid rgba(232,184,63,.35);background:rgba(255,255,255,.05);
+  color:#fff;width:42px;height:42px;border-radius:12px;font-size:20px;cursor:pointer
+}
+.hero{position:relative}
+.premium-home{min-height:calc(100vh - 0px)}
+.hero-copy{animation:heroIn .8s ease both}
+.hero-visual{animation:heroIn .95s .12s ease both}
+@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+section:not(.premium-home){position:relative}
+.title{position:relative}
+.title h2{letter-spacing:-.5px}
+.title:after{
+  content:"";display:block;width:52px;height:3px;margin:14px auto 0;border-radius:10px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)
+}
+.card,.detail-card,.why-item,.step,.contact-item{
+  box-shadow:0 8px 28px rgba(6,18,37,.045)
+}
+.card{position:relative;overflow:hidden}
+.card:before,.detail-card:before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.65
+}
+.card-icon{filter:drop-shadow(0 7px 10px rgba(8,26,54,.1))}
+.card:hover,.detail-card:hover,.why-item:hover{
+  transform:translateY(-7px);box-shadow:0 20px 45px rgba(8,26,54,.12)
+}
+.card,.detail-card,.why-item{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.quote{box-shadow:0 12px 30px rgba(181,125,16,.08)}
+.step{transition:.25s ease}
+.step:hover{transform:translateX(7px);border-color:rgba(232,184,63,.65);box-shadow:0 15px 35px rgba(6,18,37,.09)}
+.step-number{box-shadow:0 8px 20px rgba(200,139,22,.22)}
+.contact{position:relative;overflow:hidden}
+.contact:before{
+  content:"";position:absolute;width:430px;height:430px;border-radius:50%;
+  right:-220px;top:-200px;border:1px solid rgba(232,184,63,.12);
+  box-shadow:0 0 0 45px rgba(232,184,63,.025),0 0 0 90px rgba(232,184,63,.015)
+}
+.contact:after{
+  content:"";position:absolute;inset:auto 0 0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,184,63,.5),transparent)
+}
+.contact-box,.contact .title{position:relative;z-index:2}
+.contact-item{transition:.3s ease}
+.contact-item:hover{transform:translateY(-8px);background:rgba(255,255,255,.08);border-color:rgba(232,184,63,.38)}
+.gold-line{display:block;width:34px;height:2px;background:var(--gold);margin:15px auto 0;border-radius:3px}
+.whatsapp{
+  width:62px;height:62px;right:22px;bottom:22px;
+  animation:waPulse 2.2s infinite
+}
+.whatsapp:before{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:1px solid rgba(37,211,102,.45);animation:waRing 2.2s infinite
+}
+@keyframes waPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes waRing{0%{transform:scale(.9);opacity:.8}70%{transform:scale(1.18);opacity:0}100%{opacity:0}}
+.back-top{
+  position:fixed;right:22px;bottom:96px;width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;text-decoration:none;color:#fff;background:#0a1b35;
+  border:1px solid rgba(232,184,63,.28);opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:.3s;z-index:998
+}
+.back-top.show{opacity:1;visibility:visible;transform:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.price-box{position:relative;padding:34px;border:1px solid rgba(181,123,16,.16);border-radius:24px;background:rgba(255,255,255,.42);box-shadow:var(--shadow)}
+.price-number{font-size:clamp(42px,7vw,62px)}
+footer{border-top:1px solid rgba(232,184,63,.12)}
+@media(max-width:850px){
+  .navbar{flex-direction:row;gap:12px}
+  .mobile-toggle{display:block}
+  nav{
+    position:absolute;left:5%;right:5%;top:70px;display:flex;flex-direction:column;align-items:stretch;
+    gap:4px;padding:12px;border-radius:18px;background:rgba(4,13,27,.98);
+    border:1px solid rgba(232,184,63,.16);box-shadow:0 20px 45px rgba(0,0,0,.3);
+    opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s
+  }
+  nav.open{opacity:1;visibility:visible;transform:none}
+  nav a{font-size:15px;padding:11px 13px;border-radius:10px}
+  nav a:hover{background:rgba(232,184,63,.08)}
+  .nav-cta{text-align:center}
+}
+@media(max-width:520px){
+  .logo{font-size:18px}
+  .logo-icon{width:38px;height:38px}
+  .whatsapp{right:16px;bottom:16px}
+  .back-top{right:16px;bottom:88px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+
+
+<style id="contact-screenshot-style">
+/* ===== CONTACT SECTION — SCREENSHOT STYLE ===== */
+.screenshot-contact{
+  position:relative;
+  overflow:hidden;
+  color:#172033 !important;
+  background:
+    radial-gradient(circle at 50% 28%,rgba(255,255,255,.98),rgba(255,255,255,.84) 48%,rgba(250,247,239,.96) 100%) !important;
+  padding:72px 6% 58px !important;
+}
+.screenshot-contact:before,
+.screenshot-contact:after{
+  content:"";
+  position:absolute;
+  width:360px;height:360px;
+  border-radius:50%;
+  pointer-events:none;
+  border:1px solid rgba(211,165,55,.08);
+}
+.screenshot-contact:before{left:-240px;top:10px}
+.screenshot-contact:after{right:-240px;bottom:-80px}
+
+.contact-title{position:relative;z-index:2;text-align:center;margin-bottom:35px}
+.contact-kicker{
+  display:inline-flex;
+  align-items:center;
+  padding:9px 20px;
+  border:1px solid #d2a33a;
+  border-radius:999px;
+  color:#bd8a16;
+  background:rgba(255,255,255,.78);
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 7px 22px rgba(174,132,30,.08);
+}
+.screenshot-contact .contact-title h2{
+  margin:22px 0 10px !important;
+  color:#071426 !important;
+  font-size:clamp(42px,5vw,68px) !important;
+  line-height:1.12 !important;
+  font-weight:900 !important;
+  letter-spacing:-1.5px;
+}
+.screenshot-contact .contact-title h2 span{color:#c89418}
+.screenshot-contact .contact-title p{
+  color:#6d6f75 !important;
+  font-size:18px !important;
+  margin:0 auto !important;
+  max-width:850px;
+}
+.ornament{
+  margin:22px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.ornament i{
+  width:95px;height:1px;
+  background:#d5a63c;
+  display:block;
+}
+.ornament b{font-size:15px;color:#c8971c}
+
+.screenshot-contact-grid{
+  position:relative;
+  z-index:2;
+  max-width:1320px !important;
+  margin:auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(5,1fr) !important;
+  gap:18px !important;
+}
+.contact-card{
+  position:relative;
+  min-height:355px;
+  padding:28px 18px 20px;
+  border-radius:34px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  text-decoration:none !important;
+  color:#20242c !important;
+  background:rgba(255,255,255,.78);
+  border:1px solid #e8e0cf;
+  box-shadow:0 18px 40px rgba(20,29,43,.08), inset 0 1px 0 #fff;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.contact-card:hover{
+  transform:translateY(-9px);
+  box-shadow:0 28px 55px rgba(20,29,43,.15);
+}
+.contact-card:after{
+  content:"";
+  position:absolute;
+  left:16px;right:16px;top:16px;bottom:16px;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,.55);
+  pointer-events:none;
+}
+
+/* Unique icon */
+.unique-icon{
+  position:relative;
+  width:132px;height:132px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin:0 auto 18px;
+  isolation:isolate;
+  box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+.unique-icon:before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border-radius:50%;
+  background:rgba(255,255,255,.52);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:inset 0 4px 9px rgba(255,255,255,.8);
+  z-index:-1;
+}
+.unique-icon:after{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border:1.5px dotted currentColor;
+  border-radius:50%;
+  opacity:.7;
+}
+.unique-icon i{
+  width:74px;height:74px;
+  display:grid;
+  place-items:center;
+  border-radius:22px;
+  color:#fff;
+  font-size:41px;
+  box-shadow:0 11px 20px rgba(0,0,0,.16),inset 0 2px 2px rgba(255,255,255,.45);
+  transform:rotate(0deg);
+  transition:transform .35s ease;
+}
+.contact-card:hover .unique-icon i{transform:scale(1.09) rotate(-5deg)}
+.orbit-dot{
+  position:absolute;
+  width:11px;height:11px;
+  border-radius:50%;
+  right:7px;top:13px;
+  background:currentColor;
+  box-shadow:0 0 0 5px rgba(255,255,255,.65);
+}
+.orbit-dot.second{left:7px;right:auto;top:auto;bottom:18px}
+.contact-label{
+  min-width:156px;
+  padding:7px 17px;
+  border-radius:999px;
+  color:#fff;
+  font-size:17px;
+  font-weight:900;
+  line-height:1.2;
+  box-shadow:0 7px 15px rgba(0,0,0,.12);
+  margin-bottom:14px;
+}
+.contact-card strong{
+  font-size:16px;
+  font-weight:800;
+  line-height:1.45;
+  max-width:100%;
+}
+.contact-card p{
+  margin:4px 0 0 !important;
+  font-size:14px !important;
+  color:#4c4f57 !important;
+  line-height:1.65 !important;
+}
+.mini-ornament{
+  margin-top:auto;
+  padding-top:13px;
+  color:#d09b1d;
+  font-size:17px;
+  letter-spacing:2px;
+}
+.telegram-badge{
+  position:absolute;
+  width:62px;height:40px;
+  bottom:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  display:grid;
+  place-items:center;
+  border-radius:0 0 20px 20px;
+  background:#22b83b;
+  color:#fff;
+  font-size:21px;
+  box-shadow:0 9px 18px rgba(22,163,74,.2);
+  z-index:4;
+}
+
+/* Individual brand looks */
+.contact-facebook{color:#1976ed !important}
+.contact-facebook .unique-icon{color:#1976ed;background:radial-gradient(circle,#dceaff,#eef5ff 66%,#fff)}
+.contact-facebook .unique-icon i{background:linear-gradient(145deg,#3f8df5,#1459d9)}
+.contact-facebook .contact-label{background:linear-gradient(135deg,#2878ee,#0755d4)}
+
+.contact-location{color:#ef3b35 !important}
+.contact-location .unique-icon{color:#ef3b35;background:radial-gradient(circle,#ffe5e3,#fff2f1 66%,#fff)}
+.contact-location .unique-icon i{background:linear-gradient(145deg,#ff5a52,#d91f1a)}
+.contact-location .contact-label{background:linear-gradient(135deg,#f12c28,#cf0f0c)}
+
+.contact-whatsapp{color:#18a63b !important;border-color:#19a844}
+.contact-whatsapp .unique-icon{color:#18a63b;background:radial-gradient(circle,#dfffe8,#f0fff4 66%,#fff)}
+.contact-whatsapp .unique-icon i{background:linear-gradient(145deg,#31ca58,#07932d)}
+.contact-whatsapp .contact-label{background:linear-gradient(135deg,#22b83b,#07952a)}
+
+.contact-gmail{color:#ea4a38 !important}
+.contact-gmail .unique-icon{color:#ea4a38;background:radial-gradient(circle,#ffe3df,#fff1ef 66%,#fff)}
+.contact-gmail .unique-icon i{background:linear-gradient(145deg,#ff674f,#dc2d20)}
+.contact-gmail .contact-label{background:linear-gradient(135deg,#fa5b37,#df3a16)}
+
+.contact-phone{color:#6336d8 !important}
+.contact-phone .unique-icon{color:#6336d8;background:radial-gradient(circle,#e9e0ff,#f5f1ff 66%,#fff)}
+.contact-phone .unique-icon i{background:linear-gradient(145deg,#7650e9,#4c22bd)}
+.contact-phone .contact-label{background:linear-gradient(135deg,#703be3,#4b20b7)}
+
+@media(max-width:1050px){
+  .screenshot-contact-grid{grid-template-columns:repeat(3,1fr) !important}
+}
+@media(max-width:700px){
+  .screenshot-contact{padding:58px 4% 48px !important}
+  .screenshot-contact .contact-title h2{font-size:38px !important}
+  .screenshot-contact .contact-title p{font-size:15px !important}
+  .screenshot-contact-grid{grid-template-columns:repeat(2,1fr) !important;gap:13px !important}
+  .contact-card{min-height:300px;padding:23px 9px 17px;border-radius:27px}
+  .unique-icon{width:104px;height:104px}
+  .unique-icon i{width:62px;height:62px;font-size:34px;border-radius:19px}
+  .contact-label{min-width:118px;font-size:14px;padding:7px 10px}
+  .contact-card strong{font-size:13px}
+  .contact-card p{font-size:12px !important}
+}
+@media(max-width:430px){
+  .screenshot-contact-grid{grid-template-columns:1fr 1fr !important}
+  .contact-card{min-height:285px}
+  .unique-icon{width:88px;height:88px}
+  .unique-icon i{width:54px;height:54px;font-size:29px}
+  .contact-label{min-width:105px;font-size:13px}
+}
+</style>
+
 </head>
 
 
@@ -116,7 +482,7 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
 
 
 <!-- HEADER -->
-<header><div class="navbar"><div class="logo"><div class="logo-icon"><img src="At (1).jpg" alt="At Tahjib PrintLab"></div><div>At <span>Tahjib</span> Print'Lab</div></div><nav><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#order">Order</a><a href="#contact">Contact</a></nav></div></header>
+<header><div class="navbar"><div class="logo"><div class="logo-icon"><img src="At (1).jpg" alt="At Tahjib PrintLab"></div><div>At <span>Tahjib</span> Print'Lab</div></div><button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button><nav><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#order">Order</a><a href="#contact">Contact</a></nav></div></header>
 <!-- HOME -->
 <section class="hero premium-home" id="home">
   <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
@@ -719,152 +1085,94 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
 
 <!-- ================= CONTACT SECTION ================= -->
 
-<section class="contact" id="contact">
 
-  <!-- DOTS -->
-  <div class="contact-dots dots-left"></div>
-  <div class="contact-dots dots-right"></div>
-
-  <!-- TITLE -->
-  <div class="title">
-
-    <div class="contact-badge">
-      যোগাযোগ
-    </div>
-
-    <h2>
-      <i class="fa-solid fa-phone-volume"></i>
-      অর্ডার করতে যোগাযোগ করুন
-    </h2>
-
-    <p>
-      আপনার প্রয়োজনের বিস্তারিত তথ্য, ছবি বা ডিজাইন
-      WhatsApp অথবা Facebook ইনবক্সে পাঠিয়ে দিন।
-    </p>
-
+<section class="contact screenshot-contact" id="contact">
+  <div class="title contact-title">
+    <span class="contact-kicker">✦ &nbsp; যোগাযোগ করুন &nbsp; ✦</span>
+    <h2>আমাদের সাথে <span>যুক্ত থাকুন</span></h2>
+    <p>যেকোনো তথ্য, পরামর্শ বা অর্ডারের জন্য নিচের মাধ্যমে আমাদের সাথে যোগাযোগ করুন।</p>
+    <div class="ornament"><i></i><b>◆</b><i></i></div>
   </div>
 
-
-  <!-- CONTACT BOX -->
-  <div class="contact-box">
-
-
-    <!-- PHONE -->
-    <div class="contact-item phone">
-
-      <div class="icon">
-        <i class="fa-solid fa-phone"></i>
-      </div>
-
-      <h3>Phone</h3>
-
-      <p>
-        <a href="tel:+8801864452122">
-          +880 1864-452122
-        </a>
-
-        <br>
-
-        <a href="tel:+8801860799622">
-          +880 1860-799622
-        </a>
-      </p>
-
-      <span class="gold-line"></span>
-
-    </div>
-
-
-    <!-- WHATSAPP -->
-    <div class="contact-item whatsapp-icon">
-
-      <div class="icon">
-        <i class="fa-brands fa-whatsapp"></i>
-      </div>
-
-      <h3>WhatsApp</h3>
-
-      <p>
-        <a href="https://wa.me/8801864452122" target="_blank">
-          +880 1864-452122
-        </a>
-
-        <br>
-
-        <a href="https://wa.me/8801860799622" target="_blank">
-          +880 1860-799622
-        </a>
-      </p>
-
-      <span class="gold-line"></span>
-
-    </div>
-
-
-    <!-- LOCATION -->
-    <div class="contact-item location">
-
-      <div class="icon">
-        <i class="fa-solid fa-location-dot"></i>
-      </div>
-
-      <h3>Location</h3>
-
-      <p>
-        Narsingdi Sadar
-        <br>
-        Narsingdi, Dhaka
-      </p>
-
-      <span class="gold-line"></span>
-
-    </div>
-
+  <div class="contact-box screenshot-contact-grid">
 
     <!-- FACEBOOK -->
-    <div class="contact-item facebook">
-
-      <div class="icon">
+    <a class="contact-card contact-facebook"
+       href="https://www.facebook.com/share/14p5m2BbH59/"
+       target="_blank" rel="noopener">
+      <div class="unique-icon">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot second"></span>
         <i class="fa-brands fa-facebook-f"></i>
       </div>
+      <div class="contact-label">ফেসবুক</div>
+      <strong>At-tahjib Print Lab</strong>
+      <p>ফলো করুন আমাদের</p>
+      <div class="mini-ornament">— ◇ —</div>
+    </a>
 
-      <h3>Facebook</h3>
+    <!-- LOCATION -->
+    <a class="contact-card contact-location"
+       href="https://www.google.com/maps/search/?api=1&query=Narsingdi%20Sadar%2C%20Narsingdi%2C%20Dhaka"
+       target="_blank" rel="noopener">
+      <div class="unique-icon">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot second"></span>
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="contact-label">লোকেশন</div>
+      <strong>ক. এন. এস, কুলাউড়া</strong>
+      <p>মৌলভীবাজার, সিলেট</p>
+      <div class="mini-ornament">— ◇ —</div>
+    </a>
 
-      <p>
-        <a
-          href="https://www.facebook.com/share/14p5m2BbH59/"
-          target="_blank">
-          Facebook Profile
-        </a>
-      </p>
-
-      <span class="gold-line"></span>
-
-    </div>
-
+    <!-- WHATSAPP -->
+    <a class="contact-card contact-whatsapp"
+       href="https://wa.me/8801864452122"
+       target="_blank" rel="noopener">
+      <div class="unique-icon">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot second"></span>
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <div class="contact-label">WhatsApp</div>
+      <strong>+880 1864-452122</strong>
+      <p>সরাসরি মেসেজ করুন</p>
+      <div class="mini-ornament">— ◇ —</div>
+      <span class="telegram-badge"><i class="fa-solid fa-paper-plane"></i></span>
+    </a>
 
     <!-- GMAIL -->
-    <div class="contact-item gmail">
-
-      <div class="icon">
+    <a class="contact-card contact-gmail"
+       href="mailto:YOUR-GMAIL@gmail.com">
+      <div class="unique-icon">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot second"></span>
         <i class="fa-solid fa-envelope"></i>
       </div>
+      <div class="contact-label">ইমেইল</div>
+      <strong>YOUR-GMAIL@gmail.com</strong>
+      <p>আমাদের ইমেইল করুন</p>
+      <div class="mini-ornament">— ◇ —</div>
+    </a>
 
-      <h3>Gmail</h3>
-
-      <p>
-        <a href="mailto:YOUR-GMAIL@gmail.com">
-          YOUR-GMAIL@gmail.com
-        </a>
-      </p>
-
-      <span class="gold-line"></span>
-
-    </div>
+    <!-- PHONE -->
+    <a class="contact-card contact-phone"
+       href="tel:+966560199112">
+      <div class="unique-icon">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot second"></span>
+        <i class="fa-solid fa-phone"></i>
+      </div>
+      <div class="contact-label">ফোন করুন</div>
+      <strong>+966 56 019 9112</strong>
+      <p>সরাসরি কল করুন</p>
+      <div class="mini-ornament">— ◇ —</div>
+    </a>
 
   </div>
-
 </section>
+
 
 
 <!-- ================= FOOTER ================= -->
@@ -890,12 +1198,94 @@ section{padding:82px 6%}.title{text-align:center;margin-bottom:45px}.title h2{fo
   class="whatsapp"
   href="https://wa.me/8801864452122"
   target="_blank"
-  title="WhatsApp">
+  title="WhatsApp-এ যোগাযোগ করুন" aria-label="WhatsApp-এ যোগাযোগ করুন">
 
   <i class="fa-brands fa-whatsapp"></i>
 
 </a>
 
+
+
+<script id="premium-upgrade-js">
+(function(){
+  const header = document.querySelector('header');
+  const toggle = document.getElementById('mobileToggle');
+  const nav = document.querySelector('header nav');
+  const topBtn = document.createElement('a');
+  topBtn.href = '#home';
+  topBtn.className = 'back-top';
+  topBtn.setAttribute('aria-label','উপরে যান');
+  topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+  document.body.appendChild(topBtn);
+
+  if(toggle && nav){
+    toggle.addEventListener('click',()=>{
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true':'false');
+      toggle.innerHTML = open
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }));
+  }
+
+  const sections = [...document.querySelectorAll('section[id]')];
+  const links = [...document.querySelectorAll('header nav a')];
+
+  function onScroll(){
+    header && header.classList.toggle('scrolled', window.scrollY > 20);
+    topBtn.classList.toggle('show', window.scrollY > 500);
+
+    let current = 'home';
+    sections.forEach(s=>{
+      const top = s.getBoundingClientRect().top;
+      if(top <= 130) current = s.id;
+    });
+    links.forEach(a=>{
+      const active = a.getAttribute('href') === '#'+current;
+      a.classList.toggle('active', active);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  const revealTargets = document.querySelectorAll(
+    '.intro-box,.cards .card,.detail-card,.why-item,.price-box,.step,.delivery-box,.contact-item'
+  );
+  revealTargets.forEach(el=>el.classList.add('reveal'));
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12});
+    revealTargets.forEach(el=>io.observe(el));
+  }else{
+    revealTargets.forEach(el=>el.classList.add('visible'));
+  }
+
+  // Smooth, safe anchor scrolling.
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id && id.length>1){
+        const target=document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
