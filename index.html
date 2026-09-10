@@ -712,11 +712,17 @@ display:grid;place-items:center;background:#d6a32e;color:#071426}
 }
 .gallery-lightbox.open{display:flex}
 
-.gallery-preview-photo{width:100%;height:min(65vh,520px);border-radius:18px;overflow:hidden;background:#f3f1eb;display:flex;align-items:center;justify-content:center}
-.gallery-preview-photo img{width:100%;height:100%;object-fit:contain;display:block}
+.gallery-preview-photo{
+  width:100%;height:min(78vh,760px);border-radius:18px;overflow:hidden;
+  background:#071426;display:flex;align-items:center;justify-content:center;
+}
+.gallery-preview-photo img{
+  width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;
+}
 .gallery-lightbox-box{
-  width:min(850px,94vw);min-height:280px;border-radius:25px;background:#fff;padding:25px;
-  position:relative;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35)
+  width:min(1180px,96vw);min-height:280px;max-height:94vh;border-radius:25px;
+  background:#fff;padding:25px;position:relative;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:auto
 }
 .gallery-lightbox-box h3{margin:10px 0;color:#071426}
 .gallery-lightbox-box p{color:#777;margin:0}
@@ -725,6 +731,12 @@ display:grid;place-items:center;background:#d6a32e;color:#071426}
   background:#071426;color:#fff;cursor:pointer;font-size:20px
 }
 @media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .gallery-lightbox{padding:10px}
+  .gallery-lightbox-box{width:100%;max-height:96vh;padding:14px;border-radius:18px}
+  .gallery-preview-photo{height:72vh;border-radius:13px}
+  .gallery-close{right:10px;top:10px;width:40px;height:40px;z-index:5}
+}
 @media(max-width:520px){
   .gallery-section{padding:55px 4% 48px}
   .gallery-grid{grid-template-columns:1fr 1fr;gap:11px}
@@ -1772,20 +1784,27 @@ display:grid;place-items:center;background:#d6a32e;color:#071426}
   const title=document.getElementById('galleryPreviewTitle');
   items.forEach(item=>item.addEventListener('click',()=>{
     title.textContent=item.dataset.title||'Gallery';
-    const img=item.querySelector('.gallery-photo img');
+    const img=item.querySelector('.gallery-photo img, .real-photo-wrap img');
     const preview=document.getElementById('galleryPreviewPhoto');
     const caption=document.getElementById('galleryPreviewCaption');
-    if(img){
-      preview.src=img.src;
+    if(img && img.src){
+      preview.src=img.currentSrc || img.src;
       preview.alt=img.alt||title.textContent;
       caption.textContent='At-Tahjib Print\'Lab — আমাদের কাজের নমুনা';
     }else{
       preview.removeAttribute('src');
+      preview.alt='';
       caption.textContent='এই ক্যাটাগরিতে আপনার কাজের ছবি যোগ করুন।';
     }
-    lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
   }));
-  function hide(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true')}
+  function hide(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
   close.addEventListener('click',hide);
   lightbox.addEventListener('click',e=>{if(e.target===lightbox)hide()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
